@@ -1,2 +1,2 @@
 # pythonProgrammingLogic
-idk
+some programming logic problems soveld with python!
