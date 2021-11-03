@@ -1,0 +1,76 @@
+def numero_texto(num):
+    dezena = {
+        '1': "dez",
+        '2': "vinte",
+        '3': "trinta",
+        '4': "quarenta",
+        '5': "cinquenta",
+        '6': "sessenta",
+        '7': "setenta",
+        '8': "oitenta",
+        '9': "noventa",
+    }
+
+    unidade = {
+        '1': "um",
+        '2': "dois",
+        '3': "tres",
+        '4': "quatro",
+        '5': "cinco",
+        '6': "seis",
+        '7': "sete",
+        '8': "oito",
+        '9': "nove",
+    }
+    unidade2={
+        '11': "onze",
+        '12': "doze",
+        '13': "treze",
+        '14': "quatorze",
+        '15': "quinze",
+        '16': "dezsesseis",
+        '17': "dezsessete",
+        '18': "dezoito",
+        '19': "deznove",
+    }
+
+    centena = {
+        '0': "cem",
+        '1': "cento",
+        '2': "duzentos",
+        '3': "trezentos",
+        '4': "quatrocentos",
+        '5': "quinhentos",
+        '6': "seiscentos",
+        '7': "setecentos",
+        '8': "oitocentos",
+        '9': "novecentos",
+    }
+    
+    lista = []
+    
+    num = str(num)
+    tamanho = len(num)
+    
+    if tamanho == 1:
+        if num in unidade:
+            lista.append(unidade[num])
+    elif tamanho == 2:
+        if num[0] == '1':
+            if num in unidade2:
+                lista.append(unidade2[num])
+        else:
+            if num[0] in dezena:
+                lista.append(dezena[num[0]])
+                if num[1] in unidade:
+                    lista.append(unidade[num[1]])
+    elif tamanho == 3:    
+        if num[0] in centena:
+            lista.append(centena[num[0]])
+            if num[-2] in dezena:
+                lista.append(dezena[num[-2]])
+                if num[-1] in unidade:
+                    lista.append(unidade[num[-1]])
+    print(' e '.join(lista))
+
+
